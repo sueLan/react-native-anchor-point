@@ -6,9 +6,10 @@ Provide `withAnchorPoint` function to inject Anchor Point, or called Pivot Point
 > Make the 3D transform easier in React Native
 
 ![](./res/rotateZ.gif)
-![](./res/anchor_point.png)
 ![](./res/rotateXY.gif)
 ![](./res/rotate.gif)
+![](./res/anchor_point.png)
+
 ## Getting Started 
 
 install the `react-native-anchor-point` 
