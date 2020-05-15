@@ -19,6 +19,7 @@ npm install react-native-anchor-point
 ## Example 
 
 ```javascript
+import { withAnchorPoint } from 'react-native-anchor-point';
 
 getTransform = () => {
     let transform = {
