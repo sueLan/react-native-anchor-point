@@ -1,14 +1,13 @@
 # react-native-anchor-point
 
 
-Provide `withAnchorPoint` function to inject Anchor Point, or called Pivot Point into your transform object, to achieve 3D transform animation in React-Native. This is similar to web `transform-origin`. 
+Provide a simple, tricky but powerful function, `withAnchorPoint` , like Anchor Point in iOS, Pivot Point in Android, `transform-origin` in css to achieve better 3D transform animation in React-Native. 
 
 > Make the 3D transform easier in React Native
 
 ![](./res/rotateZ.gif)
 ![](./res/rotateXY.gif)
 ![](./res/rotate.gif)
-![](./res/anchor_point.png)
 
 ## Getting Started 
 
