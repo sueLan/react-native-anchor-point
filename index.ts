@@ -64,7 +64,7 @@ export const withAnchorPoint = (transform: TransformsStyle, anchorPoint: Point, 
         shiftTranslateX.push({
             translateX: size.width * (anchorPoint.x - defaultAnchorPoint.x),
         });
-        injectedTransform = shiftTranslateX.concat(injectedTransform);
+        injectedTransform = [...shiftTranslateX, ...injectedTransform];
         // shift after rotation
         injectedTransform.push({
             translateX: size.width * (defaultAnchorPoint.x - anchorPoint.x),
@@ -94,7 +94,7 @@ export const withAnchorPoint = (transform: TransformsStyle, anchorPoint: Point, 
         shiftTranslateY.push({
             translateY: size.height * (anchorPoint.y - defaultAnchorPoint.y),
         });
-        injectedTransform = shiftTranslateY.concat(injectedTransform);
+        injectedTransform = [...shiftTranslateY, ...injectedTransform];
         // shift after rotation
         injectedTransform.push({
             translateY: size.height * (defaultAnchorPoint.y - anchorPoint.y),
