@@ -1,6 +1,6 @@
 {
   "name": "react-native-anchor-point",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "I provide a util function to inject anchor point, or called pivot point into your transform object, to achieve 3D transform animation in React-Native. This is similar to web transform-origin in React-Native. ",
   "main": "index.ts",
   "repository": "https://github.com/sueLan/react-native-anchor-point.git",
@@ -19,7 +19,6 @@
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
     "eslint": "^7.0.0",
-    "eslint-plugin-react": "^7.20.0",
-    "react-native": "^0.62.2"
+    "eslint-plugin-react": "^7.20.0"
   }
 }
