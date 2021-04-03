@@ -1,19 +1,3 @@
-import {
-    TransformsStyle,
-    TranslateXTransform,
-    TranslateYTransform,
-    PerpectiveTransform,
-    RotateTransform,
-    RotateXTransform,
-    RotateYTransform,
-    RotateZTransform,
-    ScaleTransform,
-    ScaleXTransform,
-    ScaleYTransform,
-    SkewXTransform,
-    SkewYTransform,
-} from 'react-native';
-
 export interface Point {
     x: number;
     y: number;
@@ -32,10 +16,18 @@ const isValidPointValue = (value: number): boolean => {
     return value >= 0 && value <= 1.0;
 };
 
+const isValidSize = (size: Size): boolean => {
+    return size && size.width > 0 && size.height > 0;
+}; 
+
 const defaultAnchorPoint = { x: 0.5, y: 0.5 };
 
-export const withAnchorPoint = (transform: TransformsStyle, anchorPoint: Point, size: Size) => {
+export const withAnchorPoint = (transform, anchorPoint: Point, size: Size) => {
     if (!isValidPoint(anchorPoint)) {
+        return transform;
+    }
+
+    if(!isValidSize(size)) {
         return transform;
     }
 
@@ -45,20 +37,7 @@ export const withAnchorPoint = (transform: TransformsStyle, anchorPoint: Point, 
     }
 
     if (anchorPoint.x !== defaultAnchorPoint.x && size.width) {
-        const shiftTranslateX: (
-            | PerpectiveTransform
-            | RotateTransform
-            | RotateXTransform
-            | RotateYTransform
-            | RotateZTransform
-            | ScaleTransform
-            | ScaleXTransform
-            | ScaleYTransform
-            | TranslateXTransform
-            | TranslateYTransform
-            | SkewXTransform
-            | SkewYTransform
-        )[] = [];
+        const shiftTranslateX = [];
 
         // shift before rotation
         shiftTranslateX.push({
@@ -76,20 +55,7 @@ export const withAnchorPoint = (transform: TransformsStyle, anchorPoint: Point, 
     }
 
     if (anchorPoint.y !== defaultAnchorPoint.y && size.height) {
-        let shiftTranslateY: (
-            | PerpectiveTransform
-            | RotateTransform
-            | RotateXTransform
-            | RotateYTransform
-            | RotateZTransform
-            | ScaleTransform
-            | ScaleXTransform
-            | ScaleYTransform
-            | TranslateXTransform
-            | TranslateYTransform
-            | SkewXTransform
-            | SkewYTransform
-        )[] = [];
+        let shiftTranslateY = [];
         // shift before rotation
         shiftTranslateY.push({
             translateY: size.height * (anchorPoint.y - defaultAnchorPoint.y),
