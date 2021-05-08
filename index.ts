@@ -1,3 +1,5 @@
+import { TransformsStyle } from "react-native";
+
 export interface Point {
     x: number;
     y: number;
@@ -22,7 +24,7 @@ const isValidSize = (size: Size): boolean => {
 
 const defaultAnchorPoint = { x: 0.5, y: 0.5 };
 
-export const withAnchorPoint = (transform, anchorPoint: Point, size: Size) => {
+export const withAnchorPoint = (transform: TransformsStyle, anchorPoint: Point, size: Size) => {
     if (!isValidPoint(anchorPoint)) {
         return transform;
     }
