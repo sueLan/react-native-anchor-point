@@ -1,4 +1,4 @@
-import { TransformsStyle } from "react-native";
+import type { TransformsStyle } from "react-native";
 
 export interface Point {
     x: number;
