@@ -10,14 +10,6 @@ export interface Size {
     height: number;
 }
 
-const isValidPoint = (point: Point): boolean => {
-    return isValidPointValue(point.x) && isValidPointValue(point.y);
-};
-
-const isValidPointValue = (value: number): boolean => {
-    return value >= 0 && value <= 1.0;
-};
-
 const isValidSize = (size: Size): boolean => {
     return size && size.width > 0 && size.height > 0;
 }; 
@@ -25,10 +17,6 @@ const isValidSize = (size: Size): boolean => {
 const defaultAnchorPoint = { x: 0.5, y: 0.5 };
 
 export const withAnchorPoint = (transform: TransformsStyle, anchorPoint: Point, size: Size) => {
-    if (!isValidPoint(anchorPoint)) {
-        return transform;
-    }
-
     if(!isValidSize(size)) {
         return transform;
     }
