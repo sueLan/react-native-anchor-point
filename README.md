@@ -8,7 +8,7 @@ Provide a simple, tricky but powerful function, `withAnchorPoint` , like Anchor 
 ![](./res/rotateZ.gif)
 ![](./res/rotateXY.gif)
 ![](./res/rotate.gif)
-![](./res/external_point.png)
+
 ## Getting Started 
 
 install the `react-native-anchor-point` 
@@ -30,7 +30,7 @@ getTransform = () => {
     let transform = {
         transform: [{ perspective: 400 }, { rotateX: rotateValue }],
     };
-    return withAnchorPoint(transform, { x: 0.5, y: 0 }, { width: CARD_WIDTH, height: CARD_HEIGHT });
+    return withAnchorPoint(transform, { x: 0.5, y: 1.5 }, { width: CARD_WIDTH, height: CARD_HEIGHT });
 };
     
 <Animated.View style={[styles.blockBlue, this.getTransform()]} />
