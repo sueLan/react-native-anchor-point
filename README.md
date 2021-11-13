@@ -8,7 +8,7 @@ Provide a simple, tricky but powerful function, `withAnchorPoint` , like Anchor 
 ![](./res/rotateZ.gif)
 ![](./res/rotateXY.gif)
 ![](./res/rotate.gif)
-
+![](./res/external_point.png)
 ## Getting Started 
 
 install the `react-native-anchor-point` 
