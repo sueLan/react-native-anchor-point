@@ -22,18 +22,21 @@ export const withAnchorPoint = (transform: TransformsStyle, anchorPoint: Point, 
     }
 
     let injectedTransform = transform.transform;
+    
     if (!injectedTransform) {
         return transform;
     }
 
     if (anchorPoint.x !== defaultAnchorPoint.x && size.width) {
-        const shiftTranslateX = [];
+        const shiftTranslateX: { translateX: number }[] = [];
 
         // shift before rotation
         shiftTranslateX.push({
             translateX: size.width * (anchorPoint.x - defaultAnchorPoint.x),
         });
+
         injectedTransform = [...shiftTranslateX, ...injectedTransform];
+        
         // shift after rotation
         injectedTransform.push({
             translateX: size.width * (defaultAnchorPoint.x - anchorPoint.x),
@@ -45,12 +48,15 @@ export const withAnchorPoint = (transform: TransformsStyle, anchorPoint: Point, 
     }
 
     if (anchorPoint.y !== defaultAnchorPoint.y && size.height) {
-        let shiftTranslateY = [];
+        let shiftTranslateY: { translateY: number }[] = [];
+
         // shift before rotation
         shiftTranslateY.push({
             translateY: size.height * (anchorPoint.y - defaultAnchorPoint.y),
         });
+
         injectedTransform = [...shiftTranslateY, ...injectedTransform];
+
         // shift after rotation
         injectedTransform.push({
             translateY: size.height * (defaultAnchorPoint.y - anchorPoint.y),
