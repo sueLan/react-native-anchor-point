@@ -16,12 +16,8 @@ const isValidSize = (size: Size): boolean => {
 
 const defaultAnchorPoint = { x: 0.5, y: 0.5 };
 
-export const withAnchorPoint = (
-  transform: TransformsStyle,
-  anchorPoint: Point,
-  size: Size
-) => {
-  if (!isValidSize(size)) {
+export const withAnchorPoint = (transform: TransformsStyle, anchorPoint: Point, size: Size) => {
+  if(!isValidSize(size)) {
     return transform;
   }
 

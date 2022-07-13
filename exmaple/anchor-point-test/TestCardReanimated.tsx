@@ -1,16 +1,16 @@
-import React, { useEffect } from "react";
-import { StyleSheet, View, ViewProps, Text } from "react-native";
-import { Point, getAnchorPoint } from "react-native-anchor-point";
+import React, { useEffect } from 'react';
+import { StyleSheet, View, ViewProps, Text } from 'react-native';
+import { Point, getAnchorPoint } from 'react-native-anchor-point';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withRepeat,
   withTiming,
-} from "react-native-reanimated";
+} from 'react-native-reanimated';
 
 interface IProps extends ViewProps {
   rotateDegree: number;
-  rotateAxis: "x" | "y" | "z";
+  rotateAxis: 'x' | 'y' | 'z';
   anchorPoint: Point;
 }
 
@@ -27,9 +27,9 @@ export default function TestCardReanimated({
   const rotatetX = useSharedValue(0);
 
   useEffect(() => {
-    if (rotateAxis === "y") {
+    if (rotateAxis === 'y') {
       rotatetY.value = withRepeat(withTiming(rotateDegree, { duration: 400 }), -1, true);
-    } else if (rotateAxis === "x") {
+    } else if (rotateAxis === 'x') {
       rotatetX.value = withRepeat(withTiming(rotateDegree, { duration: 400 }), -1, true);
     } else {
       rotatetZ.value = withRepeat(withTiming(rotateDegree, { duration: 400 }), -1, true);
@@ -73,23 +73,23 @@ const styles = StyleSheet.create({
     margin: 50,
     width: CARD_WIDTH,
     height: CARD_HEIGHT,
-    backgroundColor: "#a6abaa",
+    backgroundColor: '#a6abaa',
   },
   anchorPoint: {
     width: 8,
     height: 8,
-    backgroundColor: "#cc3b92",
-    position: "absolute",
+    backgroundColor: '#cc3b92',
+    position: 'absolute',
   },
   blockBlue: {
     flex: 1,
-    backgroundColor: "#03fcd3",
+    backgroundColor: '#03fcd3',
   },
   text: {
-    position: "absolute",
+    position: 'absolute',
     left: 80,
     top: 80,
-    color: "#bd488b",
+    color: '#bd488b',
     zIndex: 999,
   },
 });
