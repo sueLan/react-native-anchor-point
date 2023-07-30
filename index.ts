@@ -1,4 +1,4 @@
-import type { TransformsStyle } from "react-native";
+import type { TransformsStyle, Animated } from "react-native";
 
 export interface Point {
     x: number;
@@ -12,11 +12,14 @@ export interface Size {
 
 const isValidSize = (size: Size): boolean => {
     return size && size.width > 0 && size.height > 0;
-}; 
+};
 
 const defaultAnchorPoint = { x: 0.5, y: 0.5 };
 
-export const withAnchorPoint = (transform: TransformsStyle, anchorPoint: Point, size: Size) => {
+export const withAnchorPoint = (
+    transform: TransformsStyle | Animated.WithAnimatedValue<TransformsStyle>,
+    anchorPoint: Point, size: Size
+) => {
     if(!isValidSize(size)) {
         return transform;
     }
@@ -33,11 +36,14 @@ export const withAnchorPoint = (transform: TransformsStyle, anchorPoint: Point, 
         shiftTranslateX.push({
             translateX: size.width * (anchorPoint.x - defaultAnchorPoint.x),
         });
-        injectedTransform = [...shiftTranslateX, ...injectedTransform];
-        // shift after rotation
-        injectedTransform.push({
-            translateX: size.width * (defaultAnchorPoint.x - anchorPoint.x),
-        });
+
+        if (Array.isArray(injectedTransform)) {
+            injectedTransform = [...shiftTranslateX, ...injectedTransform];
+            // shift after rotation
+            injectedTransform.push({
+                translateX: size.width * (defaultAnchorPoint.x - anchorPoint.x),
+            });
+        }
     }
 
     if (!Array.isArray(injectedTransform)) {
